@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
         && findViewById(R.id.fragment_parent) != null) {
       val clf = new CharacterListFragment()
       clf.arguments = intent.extras
-      fragmentManager.beginTransaction().add(R.id.fragment_parent, clf).addToBackStack(null).commit()
+      fragmentManager.beginTransaction().add(R.id.fragment_parent, clf).commit()
     }
   }
 

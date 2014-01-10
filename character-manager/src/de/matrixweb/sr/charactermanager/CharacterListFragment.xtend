@@ -9,9 +9,8 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import de.matrixweb.sr.lib.Character
-import java.util.List
 import de.matrixweb.sr.lib.Human
-import android.content.Intent
+import java.util.List
 
 /**
  * @author markusw
@@ -21,6 +20,7 @@ class CharacterListFragment extends ListFragment {
   override onActivityCreated(Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState)
     
+    // TODO: Load real data
     val chars = newArrayList
     chars += getCharacter()
     chars += getCharacter()
@@ -29,7 +29,10 @@ class CharacterListFragment extends ListFragment {
     
     listAdapter = new CharacterListAdapter(activity, chars)
     listView.onItemClickListener = [parent, view, position, id |
-      parent.context.startActivity(new Intent(chars.get(position).name))
+      val cdf = new CharacterDetailFragment
+      cdf.arguments = new Bundle
+      cdf.arguments.putString(Constants.CHARACTER_NAME_KEY, chars.get(position).name)
+      fragmentManager.beginTransaction().replace(R.id.fragment_parent, cdf).addToBackStack(null).commit()
     ]
   }
   
