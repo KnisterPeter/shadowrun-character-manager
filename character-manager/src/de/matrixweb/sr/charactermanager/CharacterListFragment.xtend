@@ -11,6 +11,7 @@ import android.widget.TextView
 import de.matrixweb.sr.lib.Character
 import java.util.List
 import de.matrixweb.sr.lib.Human
+import android.content.Intent
 
 /**
  * @author markusw
@@ -27,8 +28,12 @@ class CharacterListFragment extends ListFragment {
     chars += getCharacter()
     
     listAdapter = new CharacterListAdapter(activity, chars)
+    listView.onItemClickListener = [parent, view, position, id |
+      parent.context.startActivity(new Intent(chars.get(position).name))
+    ]
   }
   
+  // TODO: Dummy...
   private def getCharacter() {
     val character = new Character
     character.name = "Some 'Geek' Name"
