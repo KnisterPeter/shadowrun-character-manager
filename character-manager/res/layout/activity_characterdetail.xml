@@ -14,24 +14,112 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_gravity="top|left"
+                android:layout_weight="1"
+                android:contentDescription="Shadowrun Logo"
+                android:src="@drawable/logo"
+                tools:ignore="HardcodedText" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_gravity="bottom" >
+
+                    <de.matrixweb.sr.charactermanager.ui.LabeledTextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="5dp"
+                        sr:label="NAME/STRASSENNAME" >
+
+                    </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
+
+                    <de.matrixweb.sr.charactermanager.ui.LabeledTextView
+                        android:id="@+id/race"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        sr:label="METATYPUS" >
+                    </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
+
+                </LinearLayout>
+
+                <de.matrixweb.sr.charactermanager.ui.LabeledTextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="5dp"
+                    sr:label="AUSSEHEN" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
-            <de.matrixweb.sr.charactermanager.ui.LabeledTextView
-                android:id="@+id/name"
-                android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                sr:label="NAME/STRASSENNAME" >
+                android:layout_weight="1"
+                android:contentDescription="Characterdatenblatt"
+                android:src="@drawable/character"
+                tools:ignore="HardcodedText" />
 
+            <de.matrixweb.sr.charactermanager.ui.LabeledTextView
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:layout_margin="5dp"
+                sr:label="GESCHLECHT">
             </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
 
             <de.matrixweb.sr.charactermanager.ui.LabeledTextView
-                android:id="@+id/race"
+                android:id="@+id/age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                sr:label="METATYPUS" >
+                sr:label="ALTER">
+            </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
 
+            <de.matrixweb.sr.charactermanager.ui.LabeledTextView
+                android:id="@+id/karmapool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                sr:label="KARMAPOOL">
+            </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
+
+            <de.matrixweb.sr.charactermanager.ui.LabeledTextView
+                android:id="@+id/karma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                sr:label="GUTES KARMA">
+            </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
+
+            <de.matrixweb.sr.charactermanager.ui.LabeledTextView
+                android:id="@+id/reputation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                sr:label="REPUTATION">
             </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
 
         </LinearLayout>

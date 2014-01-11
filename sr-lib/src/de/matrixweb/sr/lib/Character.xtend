@@ -19,19 +19,19 @@ class Character {
   Race race
   
   @Property
-  Gender gender
+  Gender gender = Gender::Male
   
   @Property
-  int age
+  int age = 0
   
   @Property
   int karmapool = 1
   
   @Property
-  int karma
+  int karma = 0
   
   @Property
-  int reputation
+  int reputation = 0
   
   Body body = new Body
   

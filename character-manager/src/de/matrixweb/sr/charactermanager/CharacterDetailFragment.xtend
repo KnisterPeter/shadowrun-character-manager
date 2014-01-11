@@ -6,9 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
-import de.matrixweb.sr.lib.Character
 import de.matrixweb.sr.charactermanager.ui.LabeledTextView
+import de.matrixweb.sr.lib.Character
 
 /**
  * @author markusw
@@ -22,6 +21,18 @@ class CharacterDetailFragment extends Fragment {
   LabeledTextView name
   
   LabeledTextView race
+  
+  LabeledTextView description
+  
+  LabeledTextView gender
+  
+  LabeledTextView age
+  
+  LabeledTextView karmapool
+  
+  LabeledTextView karma
+  
+  LabeledTextView reputation
   
   Button body
   
@@ -53,6 +64,12 @@ class CharacterDetailFragment extends Fragment {
     
     name = findViewById(R.id.name) as LabeledTextView
     race = findViewById(R.id.race) as LabeledTextView
+    description = findViewById(R.id.description) as LabeledTextView
+    gender = findViewById(R.id.gender) as LabeledTextView
+    age = findViewById(R.id.age) as LabeledTextView
+    karmapool = findViewById(R.id.karmapool) as LabeledTextView
+    karma = findViewById(R.id.karma) as LabeledTextView
+    reputation = findViewById(R.id.reputation) as LabeledTextView
     body = findViewById(R.id.characterdetail_body_button) as Button
     quickness = findViewById(R.id.characterdetail_quickness_button) as Button
     strength = findViewById(R.id.characterdetail_strength_button) as Button
@@ -78,6 +95,12 @@ class CharacterDetailFragment extends Fragment {
     if (character != null) {
       name.value = character.name
       race.value = character.race.name
+      description.value = character.description
+      gender.value = character.gender.name
+      age.value = String.valueOf(character.age)
+      karmapool.value = String.valueOf(character.karmapool)
+      karma.value = String.valueOf(character.karma)
+      reputation.value = String.valueOf(character.reputation)
       body.text = String.valueOf(character.bodyValue)
       quickness.text = String.valueOf(character.quicknessValue)
       strength.text = String.valueOf(character.strengthValue)
