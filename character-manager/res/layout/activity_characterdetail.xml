@@ -15,13 +15,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="top"
             android:orientation="horizontal" >
 
             <ImageView
                 android:id="@+id/logo"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
-                android:layout_gravity="top|left"
                 android:layout_weight="1"
                 android:contentDescription="Shadowrun Logo"
                 android:src="@drawable/logo"
@@ -30,12 +30,14 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:gravity="bottom"
                 android:orientation="vertical" >
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:layout_gravity="bottom" >
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom" >
 
                     <de.matrixweb.sr.charactermanager.ui.LabeledTextView
                         android:id="@+id/name"
@@ -43,6 +45,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="bottom"
                         android:layout_margin="5dp"
+                        android:gravity="bottom"
                         sr:label="NAME/STRASSENNAME" >
 
                     </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
@@ -52,7 +55,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
+                        android:gravity="bottom"
                         sr:label="METATYPUS" >
+
                     </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
 
                 </LinearLayout>
@@ -63,6 +68,7 @@
                     android:layout_height="60dp"
                     android:layout_gravity="bottom"
                     android:layout_margin="5dp"
+                    android:gravity="bottom"
                     sr:label="AUSSEHEN" />
 
             </LinearLayout>
@@ -71,7 +77,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:gravity="bottom" >
 
             <ImageView
                 android:id="@+id/imageView1"
@@ -85,9 +92,11 @@
             <de.matrixweb.sr.charactermanager.ui.LabeledTextView
                 android:id="@+id/gender"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" 
+                android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                sr:label="GESCHLECHT">
+                android:gravity="bottom"
+                sr:label="GESCHLECHT" >
+
             </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
 
             <de.matrixweb.sr.charactermanager.ui.LabeledTextView
@@ -95,7 +104,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                sr:label="ALTER">
+                android:gravity="bottom"
+                sr:label="ALTER" >
+
             </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
 
             <de.matrixweb.sr.charactermanager.ui.LabeledTextView
@@ -103,7 +114,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                sr:label="KARMAPOOL">
+                android:gravity="bottom"
+                sr:label="KARMAPOOL" >
+
             </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
 
             <de.matrixweb.sr.charactermanager.ui.LabeledTextView
@@ -111,7 +124,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                sr:label="GUTES KARMA">
+                android:gravity="bottom"
+                sr:label="GUTES KARMA" >
+
             </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
 
             <de.matrixweb.sr.charactermanager.ui.LabeledTextView
@@ -119,7 +134,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                sr:label="REPUTATION">
+                android:gravity="bottom"
+                sr:label="REPUTATION" >
+
             </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
 
         </LinearLayout>
