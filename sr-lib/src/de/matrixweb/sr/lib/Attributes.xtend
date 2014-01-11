@@ -6,7 +6,7 @@ package de.matrixweb.sr.lib
 abstract class Attribute implements Testable {
   
   @Property
-  int level
+  int level = 1
   
   def getName() { class.simpleName }
   
@@ -34,6 +34,10 @@ class Essence extends Attribute {
   
   new() {
     setLevel(60)
+  }
+  
+  override getLevel() {
+    super.getLevel() / 10
   }
   
 }

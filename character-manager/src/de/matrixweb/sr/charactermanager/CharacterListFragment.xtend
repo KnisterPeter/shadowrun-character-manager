@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import de.matrixweb.sr.lib.Character
-import de.matrixweb.sr.lib.Human
 import java.util.List
 
 /**
@@ -17,32 +16,27 @@ import java.util.List
  */
 class CharacterListFragment extends ListFragment {
   
-  override onActivityCreated(Bundle savedInstanceState) {
-    super.onActivityCreated(savedInstanceState)
-    
-    // TODO: Load real data
-    val chars = newArrayList
-    chars += getCharacter()
-    chars += getCharacter()
-    chars += getCharacter()
-    chars += getCharacter()
-    
-    listAdapter = new CharacterListAdapter(activity, chars)
-    listView.onItemClickListener = [parent, view, position, id |
-      val cdf = new CharacterDetailFragment
-      cdf.arguments = new Bundle
-      cdf.arguments.putString(Constants.CHARACTER_NAME_KEY, chars.get(position).name)
-      fragmentManager.beginTransaction().replace(R.id.fragment_parent, cdf).addToBackStack(null).commit()
-    ]
+  CharacterListSelectionListener selectionListener
+  
+  override onAttach(Activity activity) {
+    super.onAttach(activity)
+    if (activity instanceof CharacterListSelectionListener) {
+      selectionListener = activity as CharacterListSelectionListener
+    } else {
+      throw new ClassCastException(activity + " must implement " + CharacterListSelectionListener.name)
+    }
   }
   
-  // TODO: Dummy...
-  private def getCharacter() {
-    val character = new Character
-    character.name = "Some 'Geek' Name"
-    character.race = new Human
-    character.description = 'Human Geek... Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.'
-    return character
+  override onActivityCreated(Bundle savedInstanceState) {
+    super.onActivityCreated(savedInstanceState)
+
+    listAdapter = new CharacterListAdapter(activity, (activity as MainActivity).getCharacters())
+    listView.onItemClickListener = [parent, view, position, id | selectionListener.onCharacterSelected(position) ]
+  }
+  
+  override onDetach() {
+    selectionListener = null
+    super.onDetach()
   }
   
 }
@@ -81,4 +75,10 @@ package class CharacterListRowViewHolder {
     TextView name
     @Property
     TextView description
+}
+
+interface CharacterListSelectionListener {
+  
+  def void onCharacterSelected(int index)
+  
 }

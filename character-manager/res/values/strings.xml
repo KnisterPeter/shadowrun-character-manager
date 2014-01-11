@@ -3,10 +3,15 @@
 
     <string name="app_name">Shadowrun Character Manager</string>
     <string name="action_settings">Settings</string>
-    <string name="edit_messsage">Enter a message.</string>
-    <string name="button_send">Send</string>
-    <string name="title_activity_display_message">DisplayMessageActivity</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_search">Search</string>
+    <string name="characterdetail_body_label">Body</string>
+    <string name="characterdetail_quickness_label">Quickness</string>
+    <string name="characterdetail_strength_label">Strength</string>
+    <string name="characterdetail_charisma_label">Charisma</string>
+    <string name="characterdetail_intelligence_label">Intelligence</string>
+    <string name="characterdetail_willpower_label">Willpower</string>
+    <string name="characterdetail_essence_label">Essence</string>
+    <string name="characterdetail_magic_label">Magic</string>
+    <string name="characterdetail_reaction_label">Reaction</string>
+    <string name="characterdetail_initiative_label">Initiative</string>
 
 </resources>

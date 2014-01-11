@@ -21,14 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="de.matrixweb.sr.charactermanager.DisplayMessageActivity"
-            android:label="@string/title_activity_display_message"
-            android:parentActivityName="de.matrixweb.sr.charactermanager.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.matrixweb.sr.charactermanager.MainActivity" />
-        </activity>
     </application>
 
 </manifest>
