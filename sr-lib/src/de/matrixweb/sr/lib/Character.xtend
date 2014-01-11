@@ -51,7 +51,6 @@ class Character {
   
   Reaction reaction = new Reaction(quickness, intelligence)
   
-  @Property
   int initiative = 1
   
   @Property
@@ -150,6 +149,7 @@ class Character {
   def getEssenceValue() { essence.level }
   def getMagicValue() { magic.level }
   def getReactionValue() { reaction.level }
+  def getInitiativeValue() { initiative }
   
   def getCombatPool() { (intelligence.level + quickness.level + willpower.level) / 2 }
   def getSpellPool() { (intelligence.level + willpower.level + magic.level) / 3 }
@@ -174,16 +174,26 @@ class Character {
     return calc.apply(stunDamage) + calc.apply(physicalDamage)
   }
   
-  def dispatch Pair<Integer, Integer> getDiceAndModifier(Attribute attribute) {
-    attribute.level -> 0
+  /**
+   * @returns Returns a pair consisting of the number of dice to use for a 
+   *          test and the required target-number modifier
+   */
+  def dispatch Pair<Integer, Integer> getDiceAndModifier(Testable testable) {
+    testable.level -> 0
   }
   
+  /**
+   * @returns Returns a pair consisting of the number of dice to use for a 
+   *          test and the required target-number modifier
+   */
   def dispatch Pair<Integer, Integer> getDiceAndModifier(Skill skill) {
     if (skill.level > 0) 
       skill.level -> 0
     else {
+      // First try defaulting to another skill in the same group...
       val defaultSkill = skill.group.map[cls | activeSkills.findFirst[class === cls]].findFirst[level > 0]
       if (defaultSkill !== null) defaultSkill.diceAndModifier.key -> 2
+      // ... otherwise default to the attached attribute
       else skill.attribute.diceAndModifier.key -> 4
     }
   }

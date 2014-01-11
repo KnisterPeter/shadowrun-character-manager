@@ -9,6 +9,22 @@ package de.matrixweb.sr.charactermanager;
 
 public final class R {
     public static final class attr {
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int label=0x7f010001;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int value=0x7f010000;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -26,38 +42,41 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout2=0x7f080019;
-        public static final int action_settings=0x7f08001b;
-        public static final int characterdetail_body_button=0x7f080002;
-        public static final int characterdetail_body_label=0x7f080001;
-        public static final int characterdetail_charisma_button=0x7f080008;
-        public static final int characterdetail_charisma_label=0x7f080007;
-        public static final int characterdetail_essence_button=0x7f08000e;
-        public static final int characterdetail_essence_label=0x7f08000d;
-        public static final int characterdetail_initiative_button=0x7f080012;
-        public static final int characterdetail_initiative_label=0x7f080014;
-        public static final int characterdetail_intelligence_button=0x7f08000a;
-        public static final int characterdetail_intelligence_label=0x7f080009;
-        public static final int characterdetail_magic_button=0x7f080010;
-        public static final int characterdetail_magic_label=0x7f08000f;
-        public static final int characterdetail_name=0x7f080000;
-        public static final int characterdetail_quickness_button=0x7f080004;
-        public static final int characterdetail_quickness_label=0x7f080003;
-        public static final int characterdetail_reaction_button=0x7f080011;
-        public static final int characterdetail_reaction_label=0x7f080013;
-        public static final int characterdetail_strength_button=0x7f080006;
-        public static final int characterdetail_strength_label=0x7f080005;
-        public static final int characterdetail_willpower_button=0x7f08000c;
-        public static final int characterdetail_willpower_label=0x7f08000b;
-        public static final int characterlist_row=0x7f080015;
-        public static final int characterlist_row_description=0x7f080018;
-        public static final int characterlist_row_image=0x7f080016;
-        public static final int characterlist_row_name=0x7f080017;
+        public static final int action_settings=0x7f08001d;
+        public static final int characterdetail_body_button=0x7f080003;
+        public static final int characterdetail_body_label=0x7f080002;
+        public static final int characterdetail_charisma_button=0x7f080009;
+        public static final int characterdetail_charisma_label=0x7f080008;
+        public static final int characterdetail_essence_button=0x7f08000f;
+        public static final int characterdetail_essence_label=0x7f08000e;
+        public static final int characterdetail_initiative_button=0x7f080013;
+        public static final int characterdetail_initiative_label=0x7f080015;
+        public static final int characterdetail_intelligence_button=0x7f08000b;
+        public static final int characterdetail_intelligence_label=0x7f08000a;
+        public static final int characterdetail_magic_button=0x7f080011;
+        public static final int characterdetail_magic_label=0x7f080010;
+        public static final int characterdetail_quickness_button=0x7f080005;
+        public static final int characterdetail_quickness_label=0x7f080004;
+        public static final int characterdetail_reaction_button=0x7f080012;
+        public static final int characterdetail_reaction_label=0x7f080014;
+        public static final int characterdetail_strength_button=0x7f080007;
+        public static final int characterdetail_strength_label=0x7f080006;
+        public static final int characterdetail_willpower_button=0x7f08000d;
+        public static final int characterdetail_willpower_label=0x7f08000c;
+        public static final int characterlist_row=0x7f080016;
+        public static final int characterlist_row_image=0x7f080017;
+        public static final int description=0x7f080018;
         public static final int fragment_parent=0x7f08001a;
+        public static final int label=0x7f08001c;
+        public static final int name=0x7f080000;
+        public static final int race=0x7f080001;
+        public static final int value=0x7f08001b;
     }
     public static final class layout {
         public static final int activity_characterdetail=0x7f030000;
         public static final int activity_characterlist_row=0x7f030001;
         public static final int activity_main=0x7f030002;
+        public static final int custom_labeled_textview=0x7f030003;
     }
     public static final class menu {
         public static final int main=0x7f070000;
@@ -104,4 +123,49 @@ public final class R {
          */
         public static final int AppTheme=0x7f060001;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a LabeledTextView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #LabeledTextView_label de.matrixweb.sr.charactermanager:label}</code></td><td></td></tr>
+           <tr><td><code>{@link #LabeledTextView_value de.matrixweb.sr.charactermanager:value}</code></td><td></td></tr>
+           </table>
+           @see #LabeledTextView_label
+           @see #LabeledTextView_value
+         */
+        public static final int[] LabeledTextView = {
+            0x7f010000, 0x7f010001
+        };
+        /**
+          <p>This symbol is the offset where the {@link de.matrixweb.sr.charactermanager.R.attr#label}
+          attribute's value can be found in the {@link #LabeledTextView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.matrixweb.sr.charactermanager:label
+        */
+        public static final int LabeledTextView_label = 1;
+        /**
+          <p>This symbol is the offset where the {@link de.matrixweb.sr.charactermanager.R.attr#value}
+          attribute's value can be found in the {@link #LabeledTextView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name de.matrixweb.sr.charactermanager:value
+        */
+        public static final int LabeledTextView_value = 0;
+    };
 }

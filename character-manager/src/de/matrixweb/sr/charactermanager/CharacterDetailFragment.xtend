@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import de.matrixweb.sr.lib.Character
+import de.matrixweb.sr.charactermanager.ui.LabeledTextView
 
 /**
  * @author markusw
@@ -18,7 +19,9 @@ class CharacterDetailFragment extends Fragment {
   
   Character character
   
-  TextView name
+  LabeledTextView name
+  
+  LabeledTextView race
   
   Button body
   
@@ -46,19 +49,20 @@ class CharacterDetailFragment extends Fragment {
   }
   
   override onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-    val view = inflater.inflate(R.layout.activity_characterdetail, container, false)
+    extension val view = inflater.inflate(R.layout.activity_characterdetail, container, false)
     
-    name = view.findViewById(R.id.characterdetail_name) as TextView
-    body = view.findViewById(R.id.characterdetail_body_button) as Button
-    quickness = view.findViewById(R.id.characterdetail_quickness_button) as Button
-    strength = view.findViewById(R.id.characterdetail_strength_button) as Button
-    charima = view.findViewById(R.id.characterdetail_charisma_button) as Button
-    intelligence = view.findViewById(R.id.characterdetail_intelligence_button) as Button
-    willpower = view.findViewById(R.id.characterdetail_willpower_button) as Button
-    essence = view.findViewById(R.id.characterdetail_essence_button) as Button
-    magic = view.findViewById(R.id.characterdetail_magic_button) as Button
-    reaction = view.findViewById(R.id.characterdetail_reaction_button) as Button
-    initiative = view.findViewById(R.id.characterdetail_initiative_button) as Button
+    name = findViewById(R.id.name) as LabeledTextView
+    race = findViewById(R.id.race) as LabeledTextView
+    body = findViewById(R.id.characterdetail_body_button) as Button
+    quickness = findViewById(R.id.characterdetail_quickness_button) as Button
+    strength = findViewById(R.id.characterdetail_strength_button) as Button
+    charima = findViewById(R.id.characterdetail_charisma_button) as Button
+    intelligence = findViewById(R.id.characterdetail_intelligence_button) as Button
+    willpower = findViewById(R.id.characterdetail_willpower_button) as Button
+    essence = findViewById(R.id.characterdetail_essence_button) as Button
+    magic = findViewById(R.id.characterdetail_magic_button) as Button
+    reaction = findViewById(R.id.characterdetail_reaction_button) as Button
+    initiative = findViewById(R.id.characterdetail_initiative_button) as Button
     
     return view
   }
@@ -72,7 +76,8 @@ class CharacterDetailFragment extends Fragment {
     if (bundle != null) 
       character = activity.characters.get(bundle.getInt('index'))
     if (character != null) {
-      name.text = character.name
+      name.value = character.name
+      race.value = character.race.name
       body.text = String.valueOf(character.bodyValue)
       quickness.text = String.valueOf(character.quicknessValue)
       strength.text = String.valueOf(character.strengthValue)
@@ -82,7 +87,7 @@ class CharacterDetailFragment extends Fragment {
       essence.text = String.valueOf(character.essenceValue)
       magic.text = String.valueOf(character.magicValue)
       reaction.text = String.valueOf(character.reactionValue)
-      initiative.text = '''«character.reactionValue» + «character.initiative»W6'''
+      initiative.text = '''«character.reactionValue» + «character.initiativeValue»W6'''
     }
   }
   

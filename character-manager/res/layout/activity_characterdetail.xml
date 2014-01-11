@@ -1,202 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+      xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sr="http://schemas.android.com/apk/res/de.matrixweb.sr.charactermanager"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:scrollbars="vertical" >
 
-    <TextView
-        android:id="@+id/characterdetail_name"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Name"
-        tools:ignore="HardcodedText" />
+        android:orientation="vertical" >
 
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:columnCount="3" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/characterdetail_body_label"
+            <de.matrixweb.sr.charactermanager.ui.LabeledTextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                sr:label="NAME/STRASSENNAME" >
+
+            </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
+
+            <de.matrixweb.sr.charactermanager.ui.LabeledTextView
+                android:id="@+id/race"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                sr:label="METATYPUS" >
+
+            </de.matrixweb.sr.charactermanager.ui.LabeledTextView>
+
+        </LinearLayout>
+
+        <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="left"
-            android:layout_row="0"
-            android:text="@string/characterdetail_body_label" />
+            android:columnCount="3" >
 
-        <Button
-            android:id="@+id/characterdetail_body_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_gravity="left"
-            android:layout_row="0" />
+            <TextView
+                android:id="@+id/characterdetail_body_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_gravity="left"
+                android:layout_row="0"
+                android:text="@string/characterdetail_body_label" />
 
-        <TextView
-            android:id="@+id/characterdetail_quickness_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="left"
-            android:layout_row="2"
-            android:text="@string/characterdetail_quickness_label" />
+            <Button
+                android:id="@+id/characterdetail_body_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="left"
+                android:layout_row="0" />
 
-        <Button
-            android:id="@+id/characterdetail_quickness_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_gravity="left"
-            android:layout_row="2"
-            android:text="Button"
-            tools:ignore="HardcodedText" />
+            <TextView
+                android:id="@+id/characterdetail_quickness_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_gravity="left"
+                android:layout_row="2"
+                android:text="@string/characterdetail_quickness_label" />
 
-        <TextView
-            android:id="@+id/characterdetail_strength_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="left"
-            android:layout_row="3"
-            android:text="@string/characterdetail_strength_label" />
+            <Button
+                android:id="@+id/characterdetail_quickness_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="left"
+                android:layout_row="2" />
 
-        <Button
-            android:id="@+id/characterdetail_strength_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_gravity="left"
-            android:layout_row="3"
-            android:text="Button"
-            tools:ignore="HardcodedText" />
+            <TextView
+                android:id="@+id/characterdetail_strength_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_gravity="left"
+                android:layout_row="3"
+                android:text="@string/characterdetail_strength_label" />
 
-        <TextView
-            android:id="@+id/characterdetail_charisma_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="left"
-            android:layout_row="4"
-            android:text="@string/characterdetail_charisma_label" />
+            <Button
+                android:id="@+id/characterdetail_strength_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="left"
+                android:layout_row="3" />
 
-        <Button
-            android:id="@+id/characterdetail_charisma_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_gravity="left"
-            android:layout_row="4"
-            android:text="Button"
-            tools:ignore="HardcodedText" />
+            <TextView
+                android:id="@+id/characterdetail_charisma_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_gravity="left"
+                android:layout_row="4"
+                android:text="@string/characterdetail_charisma_label" />
 
-        <TextView
-            android:id="@+id/characterdetail_intelligence_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="left"
-            android:layout_row="5"
-            android:text="@string/characterdetail_intelligence_label" />
+            <Button
+                android:id="@+id/characterdetail_charisma_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="left"
+                android:layout_row="4" />
 
-        <Button
-            android:id="@+id/characterdetail_intelligence_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_gravity="left"
-            android:layout_row="5"
-            android:text="Button"
-            tools:ignore="HardcodedText" />
+            <TextView
+                android:id="@+id/characterdetail_intelligence_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_gravity="left"
+                android:layout_row="5"
+                android:text="@string/characterdetail_intelligence_label" />
 
-        <TextView
-            android:id="@+id/characterdetail_willpower_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="left"
-            android:layout_row="6"
-            android:text="@string/characterdetail_willpower_label" />
+            <Button
+                android:id="@+id/characterdetail_intelligence_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="left"
+                android:layout_row="5" />
 
-        <Button
-            android:id="@+id/characterdetail_willpower_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_gravity="left"
-            android:layout_row="6"
-            android:text="Button"
-            tools:ignore="HardcodedText" />
+            <TextView
+                android:id="@+id/characterdetail_willpower_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_gravity="left"
+                android:layout_row="6"
+                android:text="@string/characterdetail_willpower_label" />
 
-        <TextView
-            android:id="@+id/characterdetail_essence_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="left"
-            android:layout_row="8"
-            android:text="@string/characterdetail_essence_label" />
+            <Button
+                android:id="@+id/characterdetail_willpower_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="left"
+                android:layout_row="6" />
 
-        <Button
-            android:id="@+id/characterdetail_essence_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_gravity="left"
-            android:layout_row="8"
-            android:text="Button"
-            tools:ignore="HardcodedText" />
+            <TextView
+                android:id="@+id/characterdetail_essence_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_gravity="left"
+                android:layout_row="8"
+                android:text="@string/characterdetail_essence_label" />
 
-        <TextView
-            android:id="@+id/characterdetail_magic_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_gravity="left"
-            android:layout_row="9"
-            android:text="@string/characterdetail_magic_label" />
+            <Button
+                android:id="@+id/characterdetail_essence_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="left"
+                android:layout_row="8" />
 
-        <Button
-            android:id="@+id/characterdetail_magic_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_gravity="left"
-            android:layout_row="9"
-            android:text="Button"
-            tools:ignore="HardcodedText" />
+            <TextView
+                android:id="@+id/characterdetail_magic_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_gravity="left"
+                android:layout_row="9"
+                android:text="@string/characterdetail_magic_label" />
 
-        <Button
-            android:id="@+id/characterdetail_reaction_button"
-            android:layout_column="2"
-            android:layout_gravity="left|top"
-            android:layout_row="5"
-            android:text="Button"
-            tools:ignore="HardcodedText" />
+            <Button
+                android:id="@+id/characterdetail_magic_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="left"
+                android:layout_row="9" />
 
-        <Button
-            android:id="@+id/characterdetail_initiative_button"
-            android:layout_column="2"
-            android:layout_gravity="left|top"
-            android:layout_row="8"
-            android:text="Button"
-            tools:ignore="HardcodedText" />
+            <Button
+                android:id="@+id/characterdetail_reaction_button"
+                android:layout_column="2"
+                android:layout_gravity="left|top"
+                android:layout_row="5" />
 
-        <TextView
-            android:id="@+id/characterdetail_reaction_label"
-            android:layout_column="2"
-            android:layout_gravity="top|center_horizontal"
-            android:layout_row="6"
-            android:text="@string/characterdetail_reaction_label" />
+            <Button
+                android:id="@+id/characterdetail_initiative_button"
+                android:layout_column="2"
+                android:layout_gravity="left|top"
+                android:layout_row="8" />
 
-        <TextView
-            android:id="@+id/characterdetail_initiative_label"
-            android:layout_column="2"
-            android:layout_gravity="top|center_horizontal"
-            android:layout_row="9"
-            android:text="@string/characterdetail_initiative_label" />
+            <TextView
+                android:id="@+id/characterdetail_reaction_label"
+                android:layout_column="2"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_row="6"
+                android:text="@string/characterdetail_reaction_label" />
 
-    </GridLayout>
+            <TextView
+                android:id="@+id/characterdetail_initiative_label"
+                android:layout_column="2"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_row="9"
+                android:text="@string/characterdetail_initiative_label" />
+        </GridLayout>
+    </LinearLayout>
 
-</LinearLayout>
+</ScrollView>
