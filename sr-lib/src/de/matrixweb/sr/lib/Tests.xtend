@@ -5,6 +5,10 @@ package de.matrixweb.sr.lib
  */
 interface Testable {
   
+  def String getName()
+  
   def int getLevel()
+  
+  def int getModifiedLevel()
   
 }

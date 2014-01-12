@@ -47,18 +47,23 @@ package class CharacterListAdapter extends ArrayAdapter<Character> {
     super(context, R.layout.activity_characterlist_row, list)
   }
   
+  override Activity getContext() {
+    super.getContext() as Activity
+  }
+
   override getView(int position, View convertView, ViewGroup parent) {
-    extension var view = convertView
+    var view = convertView
     if (view == null) {
-      view = (context as Activity).layoutInflater.inflate(R.layout.activity_characterlist_row, parent, false)
-      val holder = new CharacterListRowViewHolder
-      holder.image = findViewById(R.id.characterlist_row_image) as ImageView
-      holder.name = findViewById(R.id.name) as TextView
-      holder.description = findViewById(R.id.description) as TextView
-      tag = holder
+      view = context.layoutInflater.inflate(R.layout.activity_characterlist_row, parent, false) => [ v |
+        v.tag = new CharacterListRowViewHolder => [
+          image = v.findViewById(R.id.characterlist_row_image) as ImageView
+          name = v.findViewById(R.id.name) as TextView
+          description = v.findViewById(R.id.description) as TextView
+        ]
+      ]
     }
     
-    val holder = tag as CharacterListRowViewHolder
+    val holder = view.tag as CharacterListRowViewHolder
     
     val character = position.item
     holder.name.text = '''«character.name» («character.race.name»)'''

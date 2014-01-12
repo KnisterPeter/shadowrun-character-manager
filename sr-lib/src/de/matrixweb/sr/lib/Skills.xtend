@@ -20,7 +20,8 @@ abstract class Skill implements Testable {
     this.attribute = attribute
   }
   
-  def getName() { class.simpleName }
+  override getName() { class.simpleName }
+  override getModifiedLevel() { level }
   
 }
 
@@ -262,5 +263,7 @@ class Specialization implements Testable {
   
   @Property
   String name
+  
+  override getModifiedLevel() { level }
   
 }

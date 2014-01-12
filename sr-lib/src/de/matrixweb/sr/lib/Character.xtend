@@ -33,25 +33,8 @@ class Character {
   @Property
   int reputation = 0
   
-  Body body = new Body
-  
-  Quickness quickness = new Quickness
-  
-  Strength strength = new Strength
-  
-  Charisma charisma = new Charisma
-  
-  Intelligence intelligence = new Intelligence
-  
-  Willpower willpower = new Willpower
-  
-  Essence essence = new Essence
-  
-  Magic magic = new Magic(essence)
-  
-  Reaction reaction = new Reaction(quickness, intelligence)
-  
-  int initiative = 1
+  @Property
+  List<? extends Attribute> attributes
   
   @Property
   int stunDamage
@@ -60,7 +43,50 @@ class Character {
   int physicalDamage
   
   @Property
-  List<? extends Skill> activeSkills = #[
+  List<? extends Skill> activeSkills
+  
+  @Property
+  List<? extends Skill> knowledgeSkills = #[]
+  
+  @Property
+  List<? extends Skill> languageSkills = #[]
+  
+  @Property
+  long resources
+  
+  @Property
+  List<String> equipment
+  
+  @Property
+  List<String> contacts
+  
+  @Property
+  String notes
+  
+  /**
+   * Free text for character description. Could include stereotype, 
+   * look, clothes...
+   */
+  @Property
+  String description
+  
+  new() {
+    val quickness = new Quickness(1, this)
+    val intelligence = new Intelligence(1, this)
+    val essence = new Essence(this)
+    attributes = #[
+      new Body(1, this),
+      quickness,
+      new Strength(1, this),
+      new Charisma(1, this),
+      intelligence,
+      new Willpower(1, this),
+      essence,
+      new Magic(0, this, essence),
+      new Reaction(this, quickness, intelligence),
+      new Initiative(1, this)
+    ]
+    activeSkills = #[
       new Athletics(body),
       new Diving(body),
       
@@ -114,42 +140,18 @@ class Character {
       new LighterThanAirAircraft(reaction),
       new Submarine(reaction)
     ]
+  }
   
-  @Property
-  List<? extends Skill> knowledgeSkills = #[]
-  
-  @Property
-  List<? extends Skill> languageSkills = #[]
-  
-  @Property
-  long resources
-  
-  @Property
-  List<String> equipment
-  
-  @Property
-  List<String> contacts
-  
-  @Property
-  String notes
-  
-  /**
-   * Free text for character description. Could include stereotype, 
-   * look, clothes...
-   */
-  @Property
-  String description
-  
-  def getBodyValue() { body.level + race.body }
-  def getQuicknessValue() { quickness.level + race.quickness }
-  def getStrengthValue() { strength.level + race.strength }
-  def getCharismaValue() { charisma.level + race.charisma }
-  def getIntelligenceValue() { intelligence.level + race.intelligence }
-  def getWillpowerValue() { willpower.level + race.willpower }
-  def getEssenceValue() { essence.level }
-  def getMagicValue() { magic.level }
-  def getReactionValue() { reaction.level }
-  def getInitiativeValue() { initiative }
+  def getBody() { attributes.get(0) as Body }
+  def getQuickness() { attributes.get(1) as Quickness }
+  def getStrength() { attributes.get(2) as Strength }
+  def getCharisma() { attributes.get(3) as Charisma }
+  def getIntelligence() { attributes.get(4) as Intelligence }
+  def getWillpower() { attributes.get(5) as Willpower }
+  def getEssence() { attributes.get(6) as Essence }
+  def getMagic() { attributes.get(7) as Magic }
+  def getReaction() { attributes.get(8) as Reaction }
+  def getInitiative() { attributes.get(9) as Initiative }
   
   def getCombatPool() { (intelligence.level + quickness.level + willpower.level) / 2 }
   def getSpellPool() { (intelligence.level + willpower.level + magic.level) / 3 }
@@ -159,7 +161,7 @@ class Character {
   def getControlPool() { reaction.level + (/*vcr-rating*/0 * 2) }
   def getAstralCombatPool() { (intelligence.level + willpower.level + charisma.level) / 2 }
   
-  def getNewInitiative() { initiative.rollSum + reaction.level - damageInitiativeModificator }
+  def getNewInitiative() { initiative.level.rollSum + reaction.level - damageInitiativeModificator }
   private def getDamageInitiativeModificator() {
     val calc = [int damage |
       if (damage > 5) {

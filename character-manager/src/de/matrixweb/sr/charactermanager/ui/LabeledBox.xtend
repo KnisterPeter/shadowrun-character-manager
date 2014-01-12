@@ -10,9 +10,7 @@ import android.widget.TextView
 /**
  * @author markusw
  */
-class LabeledTextView extends LinearLayout {
-  
-  TextView value
+class LabeledBox extends LinearLayout {
   
   TextView label
   
@@ -26,22 +24,13 @@ class LabeledTextView extends LinearLayout {
   
   new(Context context, AttributeSet attrs, int defStyle) {
     super(context, attrs, defStyle)
-    (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(R.layout.custom_labeled_textview, this, true)
-    value = findViewById(R.id.value) as TextView
+    orientation = LinearLayout::VERTICAL;
+    (context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(R.layout.custom_labeled_box, this, true)
     label = findViewById(R.id.label) as TextView
     if (attrs != null) {
       val a = context.obtainStyledAttributes(attrs, R.styleable.LabeledTextView)
-      setValue(a.getString(R.styleable.LabeledTextView_value))
       setLabel(a.getString(R.styleable.LabeledTextView_label))
     }
-  }
-  
-  def getValue() {
-    value.text
-  }
-  
-  def void setValue(String value) {
-    this.value.text = value ?: ''
   }
   
   def getLabel() {
